@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mortgage Graph</title>
+
+  </head>
+  <body>
+        <form name="myform" onSubmit="return handleClick()">
+            <input name="Submit"  type="submit" value="Submit" >
+            <input type="number" id="principal" placeholder="Loan Amount $&hellip;">
+           <input type="number" step="0.01" id="rate" placeholder="Interest Rate %&hellip;">
+           <input type="number" id="payment" placeholder="Payment Amount $&hellip;">
+             <input type="number" id="frequency" placeholder="Payment Frequency (days)&hellip;">
+        </form>
+<div style="display: block; height: 25px; text-align:center; line-height:25px;" id="text1"> </div>
+
+    <ul></ul>
+
+<div id="flot-placeholder1" style="width:1350px;height:900px;margin:0 auto"></div>
+
+    <!-- jQuery -->
+   <script src="../dash2/vendor/jquery/jquery.min.js"></script>
+    <script src="../dash2/vendor/flot/excanvas.min.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <script src="../dash2/vendor/flot/jquery.flot.js"></script>
+    <script src="../dash2/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="../dash2/vendor/flot/jquery.flot.time.js"></script>
+<script type="text/javascript" src="../dash2/vendor/flot/jshashtable-2.1.js"></script>
+
+<script type="text/javascript" src="../dash2/vendor/flot/jquery.numberformatter-1.2.3.min.js"></script>
+<script type="text/javascript" src="../dash2/vendor/flot/jquery.flot.stack.js"></script>
+
+
+    <script src="mortgage_graph.js"></script>
+
+</body>
+</html>
+
+
