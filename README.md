@@ -1,5 +1,6 @@
 # Mortgage-Graph
 Javascript to graph principle and interest with running owing amount using flot
+Change payments, interest rate, payment frequency and see how long it takes to pay (and how much interest is paid)
 
 Ensure git and webserver installed (Linux)
 1. sudo yum install git httpd (or sudo apt-get install git apache2)
