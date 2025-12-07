@@ -8,21 +8,107 @@
     <meta name="author" content="">
 
     <title>Mortgage Graph</title>
-
+    <style>
+      body {
+        font-family: Verdana, Arial, sans-serif;
+        margin: 20px;
+      }
+      .mortgage-form {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+      }
+      .mortgage-form input[type="number"] {
+        margin: 5px;
+        padding: 8px;
+      }
+      .mortgage-form input[type="text"] {
+        margin: 5px;
+        padding: 8px;
+        width: 150px;
+      }
+      .mortgage-form button {
+        margin: 5px;
+        padding: 8px 15px;
+        cursor: pointer;
+      }
+      #mortgages-container {
+        margin-bottom: 20px;
+      }
+      .controls {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #e8f4f8;
+        border-radius: 5px;
+      }
+      .controls label {
+        margin-right: 20px;
+      }
+      #graphs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .graph-panel {
+        width: 100%;
+        max-width: 1350px;
+      }
+      .graph-title {
+        text-align: center;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+      }
+      .graph-info {
+        display: block;
+        height: auto;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        margin: 5px 0;
+      }
+      .payment-mode-selector {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      .payment-fields {
+        display: inline-block;
+      }
+      .hidden {
+        display: none !important;
+      }
+    </style>
   </head>
   <body>
-        <form name="myform" onSubmit="return handleClick()">
-            <input name="Submit"  type="submit" value="Submit" >
-            <input type="number" id="principal" placeholder="Loan Amount $&hellip;">
-            <input type="number" step="0.01" id="rate" placeholder="Interest Rate %&hellip;">
-            <input type="number" id="payment" placeholder="Payment Amount $&hellip;">
-            <input type="number" id="frequency" placeholder="Payment Frequency (days)&hellip;">
-        </form>
-  <div style="display: block; height: 25px; text-align:center; line-height:25px;" id="text1"> </div>
+    <h1>Mortgage Comparison Tool</h1>
 
-  <ul></ul>
+    <div id="mortgages-container"></div>
 
-  <div id="flot-placeholder1" style="width:1350px;height:900px;margin:0 auto"></div>
+    <button onclick="addMortgageForm()">+ Add Mortgage</button>
+
+    <div class="controls">
+      <label>
+        <input type="radio" name="displayMode" value="overlay" checked> Overlay (all on one graph)
+      </label>
+      <label>
+        <input type="radio" name="displayMode" value="side-by-side"> Side-by-Side
+      </label>
+      <br>
+      <label style="margin-top: 10px; display: inline-block;">
+        <input type="checkbox" id="showSummaryGraph" checked> Show Summary Graph (total of all mortgages)
+      </label>
+      <br>
+      <button onclick="calculateAll()" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Calculate & Display All</button>
+    </div>
+
+    <div id="graphs-container"></div>
 
   <!-- jQuery -->
   <!--script src="../dash2/vendor/jquery/jquery.min.js"></script-->
